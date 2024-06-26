@@ -1,0 +1,71 @@
+%
+% UTF-8 Basic Latin, Supplement and Extended A encoding support 
+% for Plain TeX, as far as it is supported by OT1 encoded fonts.
+%
+% (C) 2022 Luis Rivera @@jarnosz at Twitter.com BSD-2 License
+% See https://opensource.org/licenses/BSD-2-Clause for details.
+% 
+% Based on DEK's list-latin.tex, at ctan /systems/knuth/local/lib
+%
+
+\newcount\n
+\catcode`\^^c2=\active
+\catcode`\^^c3=\active
+\catcode`\^^c4=\active
+\catcode`\^^c5=\active
+\def\missing{\char183}
+\def^^c2#1{#1}
+\def^^c3#1{\n=`#1\advance\n by -128 
+ \ifcase\n 
+  \`A\or\'A\or\^A\or\~A\or\"A\or\AA\or\AE\or\c C\or
+  \`E\or\'E\or\^E\or\"E\or\`I\or\'I\or\^I\or\"I\or
+  \missing\or\~N\or\`O\or\'O\or\^O\or\~O\or\"O\or{\syttfont\char2}\or
+  \O\or\`U\or\'U\or\^U\or\"U\or\'Y\or\missing\or\ss\or
+  \`a\or\'a\or\^a\or\~a\or\"a\or\aa\or\ae\or\c c\or
+  \`e\or\'e\or\^e\or\"e\or\`\i\or\'\i\or\^\i\or\"\i\or
+  \missing\or\~n\or\`o\or\'o\or\^o\or\~o\or\"o\or{\syttfont\char4}\or
+  \o\or\`u\or\'u\or\^u\or\"u\or\'y\or\missing\or\"y\fi
+ }
+\def^^c4#1{\n=`#1\advance\n by -128 
+ \ifcase\n 
+ %
+  \=A\or\=a\or\u A\or\u a\or\missing\or\missing\or\'C\or\'c
+  %
+  \or\^C\or\^c\or\.C\or\.c\or\v C\or\v c\or\v D\or d'
+  %
+  \or\missing\or\missing\or\=E\or\=e\or\u E\or\u e\or\.E\or\.e
+  %
+  \or\missing\or\missing\or\v E\or\v e\or\^G\or\^g\or\u G\or\u g
+  %
+  \or\.G\or\.g\or\c G\or\c g\or\^H\or\^h\or\missing\or\missing
+  %
+  \or\~I\or\~\i\or\~I\or\~\i\or\u I\or\u\i\or\missing\or\missing
+  %
+  \or\.I\or\i\or IJ\or ij\or\^J\or\^j\or\c K\or\c k
+  %
+  \or\missing\or\'L\or\'l\or\c L\or\c l\or L'\or l'\or L$\cdot$  
+  \fi
+ }
+  %
+\def^^c5#1{\n=`#1\advance\n by -128 
+ \ifcase\n 
+  %
+  l$\cdot$\or\L\or\l\or\'N\or\'n\or\c N\or\c n\or\v N
+  %
+  \or \v n\or\missing\or\missing\or\missing\or\=O\or\=o\or\u O\or\u o
+  %
+  \or\H o\or\H o\or\OE\or\oe\or\'R\or\'r\or\c R\or\'r
+  %
+  \or\v R\or\v r\or\'S\or\'s\or\^S\or\^s\or\c S\or\c s
+  %
+  \or\v S\or\v s\or\c T\or\c t\or\v T\or t'\or\missing\or\missing
+  %
+  \or\~U\or\~u\or\=U\or\=u\or\u U\or\u u\or\missing\or\missing
+  %
+  \or\missing\or\missing\or\^W\or\^w\or\^Y\or\^y
+  %
+  \or\"Y\or\'Z\or\'z\or\.Z\or\.z\or\v Z\or\v z\or\missing
+  \fi
+ }
+
+\endinput
